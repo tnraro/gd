@@ -4,10 +4,10 @@ import { resolve } from "node:path";
 const publicDir = "public";
 
 Bun.serve({
-  async fetch(res) {
-    const url = new URL(res.url);
+  async fetch(req) {
+    const url = new URL(req.url);
     let path = decodeURIComponent(url.pathname);
-    console.log(res.method, path);
+    console.log(req.method, path);
     if (path === "/") {
       const directories = await readDirectories(publicDir);
       return new Response(
