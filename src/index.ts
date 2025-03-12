@@ -47,7 +47,11 @@ Bun.serve({
           else if (response instanceof Response) return response;
         }
       }
-      return new Response(file);
+      return new Response(file, {
+        headers: {
+          "Content-Type": file.type,
+        },
+      });
     } catch (e) {
       throw e;
     } finally {
