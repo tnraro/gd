@@ -1,0 +1,8 @@
+.*
+node_modules
+Dockerfile*
+*.md
+out
+public
+*.test.ts
+*.bench.ts
