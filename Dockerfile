@@ -8,6 +8,7 @@ RUN bun install --frozen-lockfile
 RUN bun run build
 
 FROM base AS release
+RUN apt-get update && apt-get -y install zstd
 COPY --from=build /app/out/ /app/
 RUN mkdir -p /app/public
 USER bun
